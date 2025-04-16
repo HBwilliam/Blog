@@ -1,4 +1,8 @@
 <template>
+  <head>
+    <title>About – William Habberjam</title>
+    <meta name="description" content="About William Habberjam" />
+  </head>
   <div class="about">
     <h1>About Me</h1>
     <MarkdownRenderer :markdownContent="markdownContent" />

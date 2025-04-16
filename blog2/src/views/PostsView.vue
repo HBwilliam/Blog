@@ -1,4 +1,8 @@
 <template>
+  <head>
+    <title>Blog Posts – William Habberjam</title>
+    <meta name="description" content="Blog posts by William Habberjam, sorted by date." />
+  </head>
     <div class="posts-view">
       <div class="top">
         <h1>Posts</h1>
