@@ -5,7 +5,7 @@
       <nav>
         <div class="left">
           <router-link class="title" to="/">
-            <h1>Willam.dev</h1>
+            <h1>Willamhabberjam.me</h1>
           </router-link>
         </div>
         <div class="right">
