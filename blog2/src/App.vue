@@ -4,7 +4,6 @@
     <div class="navbar">
       <nav>
         <div class="left">
-          <img src="motherboard.svg" alt="site icon">
           <router-link class="title" to="/">
             <h1>Willam.dev</h1>
           </router-link>
