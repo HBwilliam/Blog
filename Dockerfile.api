@@ -1,0 +1,21 @@
+
+# Dockerfile.api - For the Express API
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY BlogApi/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy Express API files
+COPY BlogApi/ .
+
+# If you need to build TypeScript or other compilation steps
+# RUN npm run build
+
+EXPOSE 3000
+
+CMD ["node", "index.js"]
