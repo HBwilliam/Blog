@@ -1,4 +1,3 @@
-
 # Dockerfile.api - For the Express API
 FROM node:18-alpine
 
