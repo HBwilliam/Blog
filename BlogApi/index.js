@@ -8,17 +8,39 @@ const app = express();
 const PORT = 3000;
 
 // PostgreSQL connection
-
 const pool = new Pool({
   user: process.env.PG_USER,
   password: process.env.PG_PASSWORD,
   host: process.env.PG_HOST,
-  port: parseInt(process.env.PG_PORT), // Fallback to default port 5432
+  port: parseInt(process.env.PG_PORT),
   database: process.env.PG_DATABASE,
 });
 
 app.use(express.json());
 app.use(cors());
+
+// Authentication middleware
+const authenticateToken = (req, res, next) => {
+  // Skip authentication for GET requests
+  if (req.method === 'GET') {
+    return next();
+  }
+  
+  const token = req.headers.authorization;
+  
+  // Check if token exists and matches
+  if (!token || token !== `Bearer ${process.env.AUTH_TOKEN}`) {
+    return res.status(401).json({ error: 'Unauthorized: Invalid or missing token' });
+  }
+  
+  next();
+};
+
+// Add the middleware to your Express app
+app.use(authenticateToken);
+
+// Your existing routes remain the same
+// ...
 
 // Create a new post with tags
 app.post("/posts", async (req, res) => {
